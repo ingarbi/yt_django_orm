@@ -8,6 +8,9 @@ x = Brand.objects.all().query  # используется к кверисет ч
 connection.queries  # Посмотреть все последние запросы скьэль
 reset_queries()  # очистить все последние запросы скьэль
 
+cursor = connection.cursor()
+cursor.execute("INSERT INTO inventory_brand (brand_id, name) VALUES (%s, %s)", ['1', "addidas"]) #raw sql query
+
 x = Brand.objects.filter(brand_id=1)  # Фильтр по определенным параматрам
 x = Brand.objects.all().count()  # Подсчет вернувшихся объектов
 len(x)  # Подсчет вернувшихся объектов
