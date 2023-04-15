@@ -1,7 +1,8 @@
-from inventory.models import Brand
+from inventory.models import Brand, Category
 from django.db import connection, reset_queries
 
 Brand.objects.create(brand_id=1, name="adidas")  # Создает объект
+Category.objects.create(name="T-shirts")  # Создает объект
 x = Brand.objects.all()  # ВОзвращает кверисет из данных
 x = Brand.objects.all().delete()  # удаляет все данные
 x = Brand.objects.all().query  # используется к кверисет чтобы увидеть запрос СКЬЮЭЛь
