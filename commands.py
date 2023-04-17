@@ -1,7 +1,7 @@
-from inventory.models import Brand, Category
+from inventory.models import Brand, Category, Tag
 from django.db import connection, reset_queries
 
-Brand.objects.create(brand_id=1, name="adidas")  # Создает объект
+Brand.objects.create(brand_id=1, name="adidas", category_id=1)  # Создает объект
 Category.objects.create(name="T-shirts")  # Создает объект
 x = Brand.objects.all()  # ВОзвращает кверисет из данных
 x = Brand.objects.all().delete()  # удаляет все данные
@@ -27,3 +27,8 @@ Brand.objects.all().values(
 Brand.objects.save(
     brand_id=1, name="adidas"
 )  # Сохраняет обновляя если есть такая запись, в противном случае создает новую
+
+x = Brand.objects.get(brand_id=222) #Получение определнного объекта
+x.tag.add(Tag.objects.get(id=2)) #Добавление определнного тега к объекту
+x.tag.remove(Tag.objects.get(id=2)) #Удаление определнного тега объекта
+x.tag.add(Tag.objects.create(name="new"))#Добавление тега к объекту СОЗДАНИЕМ
