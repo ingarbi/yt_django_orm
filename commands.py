@@ -1,4 +1,4 @@
-from inventory.models import Brand, Category, Tag
+from inventory.models import Brand, Category, Tag, Stock
 from django.db import connection, reset_queries
 
 Brand.objects.create(brand_id=1, name="adidas", category_id=1)  # Создает объект
@@ -32,3 +32,5 @@ x = Brand.objects.get(brand_id=222) #Получение определнного
 x.tag.add(Tag.objects.get(id=2)) #Добавление определнного тега к объекту
 x.tag.remove(Tag.objects.get(id=2)) #Удаление определнного тега объекта
 x.tag.add(Tag.objects.create(name="new"))#Добавление тега к объекту СОЗДАНИЕМ
+
+Stock.objects.update(quantity=11, product_brand_id=222) #Обновление данных

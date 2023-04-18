@@ -21,3 +21,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+class Stock(models.Model):
+    product_brand = models.OneToOneField(Brand, on_delete=models.PROTECT)
+    quantity = models.IntegerField(default=0)
