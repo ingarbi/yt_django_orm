@@ -21,6 +21,6 @@ first_brand = Category.objects.first()# Первый объект в табли�
 first_brand.brand_set.all()# Без оелайтед нейм
 first_brand.brands.all()# С использованием релайтед нейм
 
-Stock.objects.filter(product_brand__name__contains='adi')
-Brand.objects.filter(stock_brand__quantity__lte=3)
-Brand.objects.filter(stock_brand__quantity__gte=3)
+Stock.objects.filter(product_brand__name__contains='adi')# Достаем нейм из Брэнд таблицы
+Brand.objects.filter(stock_brand__quantity__lte=3)# # Достаем кол-во из Сток таблицы через релайтед нейм
+Brand.objects.filter(stock_brand__quantity__gte=3)# Достаем кол-во из Сток таблицы через релайтед нейм
