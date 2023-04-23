@@ -1,4 +1,4 @@
-from inventory.models import Tag, Category, Brand
+from inventory.models import Tag, Category, Brand, Stock
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 
@@ -20,3 +20,7 @@ Brand.objects.filter(category_id__name__contains="p")# переход в таб�
 first_brand = Category.objects.first()# Первый объект в таблице
 first_brand.brand_set.all()# Без оелайтед нейм
 first_brand.brands.all()# С использованием релайтед нейм
+
+Stock.objects.filter(product_brand__name__contains='adi')
+Brand.objects.filter(stock_brand__quantity__lte=3)
+Brand.objects.filter(stock_brand__quantity__gte=3)
