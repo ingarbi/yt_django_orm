@@ -24,3 +24,9 @@ first_brand.brands.all()# С использованием релайтед не�
 Stock.objects.filter(product_brand__name__contains='adi')# Достаем нейм из Брэнд таблицы
 Brand.objects.filter(stock_brand__quantity__lte=3)# # Достаем кол-во из Сток таблицы через релайтед нейм
 Brand.objects.filter(stock_brand__quantity__gte=3)# Достаем кол-во из Сток таблицы через релайтед нейм
+
+Brand.objects.filter(tag__id=1)
+Brand.objects.filter(tag__name__contains="re")
+Brand.tag.through.objects.all()
+Tag.objects.filter(brand_tags__brand_id=1)
+Tag.objects.filter(brand_tags__brand_id__gte=1)

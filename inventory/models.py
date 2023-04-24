@@ -7,7 +7,7 @@ class Brand(models.Model):
     category = models.ForeignKey(
         "Category", on_delete=models.CASCADE, related_name="brands"
     )
-    tag = models.ManyToManyField("Tag")
+    tag = models.ManyToManyField("Tag", related_name="brand_tags")
 
     def __str__(self):
         return self.name
