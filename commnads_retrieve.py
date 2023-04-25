@@ -25,8 +25,10 @@ Stock.objects.filter(product_brand__name__contains='adi')# Достаем ней
 Brand.objects.filter(stock_brand__quantity__lte=3)# # Достаем кол-во из Сток таблицы через релайтед нейм
 Brand.objects.filter(stock_brand__quantity__gte=3)# Достаем кол-во из Сток таблицы через релайтед нейм
 
-Brand.objects.filter(tag__id=1)
-Brand.objects.filter(tag__name__contains="re")
-Brand.tag.through.objects.all()
-Tag.objects.filter(brand_tags__brand_id=1)
-Tag.objects.filter(brand_tags__brand_id__gte=1)
+Brand.objects.filter(tag__id=1)# Фильтр тегов для объектов Брэнд у которого айди =1
+Brand.objects.filter(tag__name__contains="re")# Фильтр тегов для объектов Брэнд у которого имя содержит
+Brand.tag.through.objects.all()# Вывод всех объектов в промеж таблицы
+Tag.objects.filter(brand_tags__brand_id=1)# вывод тэгов у которых брендайди =1
+Tag.objects.filter(brand_tags__brand_id__gte=1)#вывод тэгов у которых брендайди <=1
+
+
