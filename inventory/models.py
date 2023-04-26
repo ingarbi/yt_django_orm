@@ -32,3 +32,4 @@ class Stock(models.Model):
         Brand, on_delete=models.PROTECT, related_name="stock_brand"
     )
     quantity = models.IntegerField(default=0)
+ 
