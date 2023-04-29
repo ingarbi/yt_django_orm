@@ -15,5 +15,5 @@ objs[1].name = ["new new name2"]
 Tag.objects.bulk_update(objs, ['name']) # обновление имени для многих записей
 
 Brand.objects.all().delete()#Удаление всех данных
-Brand.objects.filter(brand_id=1).delete()
-Stock.objects.filter(id=4).delete()
+Brand.objects.filter(brand_id=1).delete()#Удаление по айди
+Stock.objects.filter(id=4).delete()#Удаление по айди
