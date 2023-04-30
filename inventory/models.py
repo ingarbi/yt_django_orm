@@ -12,6 +12,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
 
 class Brand(models.Model):
     brand_id = models.PositiveBigIntegerField(primary_key=True, db_column="brand_id")
