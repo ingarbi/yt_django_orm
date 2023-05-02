@@ -1,4 +1,4 @@
-from inventory.models import Product,Category
+from inventory.models import Product,Category, Brand
 from django.db.models import Avg, Max, Count, Sum, Min
 
 Product.objects.all()[:1] #start, stop, step/ первый элемент 
@@ -22,3 +22,5 @@ x = Product.objects.annotate(num_q=Count('quantity'))#Аннотирование
 x[0].num_q #Аннотирование возвращает переменную которую мы можем использовать
 Product.objects.values('category').annotate(num_cat=Count('quantity'))#Аннотирование сколько категорий выбрано
 Product.objects.values('category').annotate(num_cat=Sum('quantity'))#Аннотирование суммы для каждой категории
+
+

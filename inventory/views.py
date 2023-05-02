@@ -4,8 +4,17 @@ from django.http import HttpResponse
 
 from inventory.models import Brand
 
+
+
+
 def create(request):
 
-    Brand.objects.create(brand_id=5, name="requested Brand")
+    # items = Brand.objects.select_related('category')
+    items = Brand.objects.prefetch_related('tag')
+    
+    #
+    for item in items:
+        for i in item.tag.all():
+            i
 
-    return HttpResponse("Added")
+    return render(request)
